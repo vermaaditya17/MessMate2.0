@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
@@ -13,15 +15,13 @@ export default function Login() {
         </div>
 
         <form className="mt-8 space-y-5">
-          
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
-              Email
+              Email or phone number
             </label>
-
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Enter your email or Number"
               className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
             />
           </div>
@@ -30,7 +30,6 @@ export default function Login() {
             <label className="block text-sm font-medium text-slate-700 mb-2">
               Password
             </label>
-
             <input
               type="password"
               placeholder="Enter your password"
@@ -48,9 +47,10 @@ export default function Login() {
 
         <p className="mt-6 text-center text-sm text-slate-500">
           Don't have an account?{" "}
-          <span className="text-slate-900 font-medium cursor-pointer">
+          
+          <Link to="/register" className="text-slate-900 font-medium hover:underline">
             Sign Up
-          </span>
+          </Link>
         </p>
       </div>
     </div>

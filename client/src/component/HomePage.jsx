@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function HomePage() {
+  const navigate = useNavigate()
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-6">
       <div className="max-w-2xl text-center">
@@ -7,6 +10,7 @@ export default function HomePage() {
         </h1>
 
         <p className="mt-6 text-xl text-gray-600">
+
           Built for students. Designed for mess owners.
         </p>
 
@@ -16,8 +20,11 @@ export default function HomePage() {
           all from one place.
         </p>
 
-        <button className="mt-10 px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition">
-          Get Started
+        <button 
+        onClick={()=>navigate("/login")}
+        className="mt-10 px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition">
+        Get Started
+          
         </button>
       </div>
     </div>
