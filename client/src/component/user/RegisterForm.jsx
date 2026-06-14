@@ -39,7 +39,18 @@ export default function RegisterForm(){
               className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
             />
           </div>
+          
+             <div>
+            <label className="block text-sm font-medium text-slate-700 mb-2">
+            Phone Number
+            </label>
 
+            <input
+              type="number"
+              placeholder="Enter your Phone number"
+              className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
+            />
+          </div>
              <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
               Restaurant Name
@@ -52,17 +63,7 @@ export default function RegisterForm(){
             />
           </div>
         
-           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">
-            Phone Number
-            </label>
-
-            <input
-              type="number"
-              placeholder="Enter your Phone number"
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
-            />
-          </div>
+        
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">

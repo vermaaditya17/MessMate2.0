@@ -20,12 +20,22 @@ export default function HomePage() {
           all from one place.
         </p>
 
-        <button 
-        onClick={()=>navigate("/login")}
-        className="mt-10 px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition">
-        Get Started
-          
-        </button>
+       <div className="mt-10 flex gap-4 justify-center">
+
+      <button
+          onClick={() => navigate("user/login")}
+          className="px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition">
+      
+        User Login
+     </button>
+
+  <button
+    onClick={() => navigate("/admin/login")}
+    className="px-8 py-3 border border-black text-black rounded-lg font-medium hover:bg-gray-100 transition">
+  
+    Admin Login
+  </button>
+          </div>
       </div>
     </div>
   );
