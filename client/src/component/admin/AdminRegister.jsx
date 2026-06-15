@@ -25,7 +25,7 @@ export default function AdminRegister() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/admin/register",
+        "https://messmate-server-6nq7.onrender.com/api/admin/register",
         formData
       );
 
