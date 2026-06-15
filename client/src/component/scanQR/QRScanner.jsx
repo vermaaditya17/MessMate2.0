@@ -27,7 +27,7 @@ function QRScanner() {
         scanner.clear().catch(() => {});
       },
       (error) => {
-        // Ignore scan errors
+        console.log(error)
       }
     );
 
