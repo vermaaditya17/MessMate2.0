@@ -1,6 +1,7 @@
-
+import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
+  const navigate = useNavigate()
   const user = {
     name: "Aditya Verma",
     plan: "30 Thali Plan",
@@ -51,7 +52,7 @@ const UserDashboard = () => {
           Mark Attendance
         </h2>
 
-        <button className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800">
+        <button onClick={()=>{navigate("/scan")}} className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800">
           Scan QR Code
         </button>
       </div>

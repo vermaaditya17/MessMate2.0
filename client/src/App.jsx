@@ -6,6 +6,7 @@ import AdminLogin from "./component/admin/AdminLogin";
 import AdminRegister from "./component/admin/AdminRegister";
 import UserDashboard from "./component/user/UserDashboard";
 import AdminDashboard from "./component/admin/AdminDashboard";
+import QRScanner from "./component/scanQR/QRScanner";
 
 const App = ()=>{
 
@@ -24,7 +25,8 @@ const App = ()=>{
     <Route path="admin/register" element={<AdminRegister/>}/>
     <Route path="admin/dashboard" element={<AdminDashboard/>}/>
     
-    
+    {/*scan QR*/}
+    <Route path="/scan" element={<QRScanner/>}/>
    
 
     
