@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function RegisterForm(){
     return(
         <>
@@ -6,7 +8,8 @@ export default function RegisterForm(){
         
         <div className="text-center">
           <h1 className="text-3xl font-bold text-slate-900">
-            Welcome Back
+            Welcome back..
+
           </h1>
           <p className="mt-2 text-slate-500">
             Sign up to continue to MessMate
@@ -85,12 +88,14 @@ export default function RegisterForm(){
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-slate-500">
-          Don't have an account?{" "}
-          <span className="text-slate-900 font-medium cursor-pointer">
-            Sign Up
-          </span>
-        </p>
+       <p className="mt-6 text-center text-sm text-slate-500">
+        Already Have an account then?{" "}
+  
+       <Link to="/user/login" className="text-slate-900 font-medium hover:underline">
+        login
+       </Link>
+       </p>
+
       </div>
     </div>
         </>
