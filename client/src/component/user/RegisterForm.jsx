@@ -1,6 +1,48 @@
-import { Link } from "react-router-dom";
+import { useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"
 
 export default function RegisterForm(){
+  const navigate = useNavigate()
+
+  const [formData , setFormData] = useState({
+    id:"",
+    name:"",
+    email:"",
+    phone:"",
+    restaurantName:"",
+    password:""
+  })
+
+  const handleChange =(e)=>{
+    setFormData({
+      ...formData,
+      [e.target.name]:e.target.value
+    })
+  }
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post(
+      "http://localhost:5000/api/users/register",
+      formData
+    );
+
+    alert(res.data.message);
+
+    navigate("/user/login");
+
+  } catch (error) {
+    console.log(error);
+
+    alert(
+      error.response?.data?.message ||
+      "Something went wrong"
+    );
+  }
+};
     return(
         <>
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
@@ -16,7 +58,24 @@ export default function RegisterForm(){
           </p>
         </div>
 
-        <form className="mt-8 space-y-5">
+        <form
+            onSubmit={handleSubmit} 
+        className="mt-8 space-y-5">
+            
+            <div>
+               <label className="block text-sm font-medium text-slate-700 mb-2">
+                  User ID
+               </label>
+
+            <input
+                type="number"
+                name="id"
+                value={formData.id}
+                 onChange={handleChange}
+                placeholder="Enter User ID"
+                 className="w-full px-4 py-3 border border-slate-300 rounded-lg"
+             />
+            </div>
 
             <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -24,9 +83,12 @@ export default function RegisterForm(){
             </label>
 
             <input
-              type="text"
-              placeholder="Enter your Name"
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
+             type="text"
+             name="name"
+             value={formData.name}
+             onChange={handleChange}
+             placeholder="Enter your Name"
+             className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
             />
           </div>
 
@@ -37,10 +99,13 @@ export default function RegisterForm(){
             </label>
 
             <input
-              type="email"
-              placeholder="Enter your email "
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
-            />
+  type="email"
+  name="email"
+  value={formData.email}
+  onChange={handleChange}
+  placeholder="Enter your email"
+  className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
+/>
           </div>
           
              <div>
@@ -48,22 +113,28 @@ export default function RegisterForm(){
             Phone Number
             </label>
 
-            <input
-              type="number"
-              placeholder="Enter your Phone number"
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
-            />
+           <input
+  type="number"
+  name="phone"
+  value={formData.phone}
+  onChange={handleChange}
+  placeholder="Enter your Phone number"
+  className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
+/>
           </div>
              <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
               Restaurant Name
             </label>
 
-            <input
-              type="text"
-              placeholder="Enter your Restaurant name"
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
-            />
+           <input
+  type="text"
+  name="restaurantName"
+  value={formData.restaurantName}
+  onChange={handleChange}
+  placeholder="Enter your Restaurant name"
+  className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
+/>
           </div>
         
         
@@ -74,10 +145,13 @@ export default function RegisterForm(){
             </label>
 
             <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
-            />
+  type="password"
+  name="password"
+  value={formData.password}
+  onChange={handleChange}
+  placeholder="Enter your password"
+  className="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-slate-900"
+/>
           </div>
            
            <button
