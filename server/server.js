@@ -13,7 +13,13 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+     
+      "https://mess-mate2-0.vercel.app/",
+    ],
+    credentials: true,
+  }));
 
 app.use(express.json());
 
