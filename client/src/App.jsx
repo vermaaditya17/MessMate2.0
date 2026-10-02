@@ -5,7 +5,7 @@ import AdminRegister from "./component/admin/AdminRegister";
 import UserDashboard from "./component/user/UserDashboard";
 import AdminDashboard from "./component/admin/AdminDashboard";
 import QRScanner from "./component/scanQR/QRScanner";
-import SplashScreen from "./component/splashScreen/splashScreen";
+import SplashScreen from "./component/splashScreen/SplashScreen";
 import { useState } from "react";
 
 const App = ()=>{
