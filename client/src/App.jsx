@@ -1,14 +1,21 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import HomePage from "./component/HomePage";
-import Login from "./component/user/Login";
 import RegisterForm from "./component/user/RegisterForm";
-import AdminLogin from "./component/admin/AdminLogin";
 import AdminRegister from "./component/admin/AdminRegister";
 import UserDashboard from "./component/user/UserDashboard";
 import AdminDashboard from "./component/admin/AdminDashboard";
 import QRScanner from "./component/scanQR/QRScanner";
+import SplashScreen from "./component/splashScreen/splashScreen";
+import { useState } from "react";
 
 const App = ()=>{
+
+const [showSplash, setShowSplash] = useState(true);
+
+  // If showSplash is true, render ONLY the splash screen
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
 
  return(
   <BrowserRouter>
@@ -16,12 +23,12 @@ const App = ()=>{
     {/*user routing*/}
 
     <Route path="/" element={<HomePage/>}/>
-    <Route path="user/login" element={<Login/>}/>
+    
     <Route path="user/register" element={<RegisterForm/>}/>
     <Route path="user/dashboard" element={<UserDashboard/>}/>
 
     {/*Admin Routing*/}
-    <Route path="admin/login" element={<AdminLogin/>}/>
+  
     <Route path="admin/register" element={<AdminRegister/>}/>
     <Route path="admin/dashboard" element={<AdminDashboard/>}/>
     

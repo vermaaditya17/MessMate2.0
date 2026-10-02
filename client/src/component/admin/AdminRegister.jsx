@@ -30,12 +30,10 @@ export default function AdminRegister() {
       );
 
       alert(res.data.message);
-
-      navigate("/admin/login");
+      navigate("/");
 
     } catch (error) {
       console.log(error);
-
       alert(
         error.response?.data?.message ||
         "Registration Failed"
@@ -43,15 +41,18 @@ export default function AdminRegister() {
     }
   };
 
+  // Shared input styling for cleaner code
+  const inputClasses = "w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all";
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-md">
+    <div className="min-h-screen flex items-center justify-center bg-orange-50 px-4">
+      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl shadow-orange-900/10 border border-orange-100">
         
-        <h1 className="text-3xl font-bold text-center">
+        <h1 className="text-3xl font-bold text-center text-orange-700">
           Admin Register
         </h1>
 
-        <p className="text-center text-gray-500 mt-2">
+        <p className="text-center text-orange-900/60 mt-2">
           Create your mess owner account
         </p>
 
@@ -65,7 +66,7 @@ export default function AdminRegister() {
             value={formData.ownerName}
             onChange={handleChange}
             placeholder="Full Name"
-            className="w-full p-3 border rounded-lg"
+            className={inputClasses}
             required
           />
 
@@ -75,7 +76,7 @@ export default function AdminRegister() {
             value={formData.restaurantName}
             onChange={handleChange}
             placeholder="Mess Name"
-            className="w-full p-3 border rounded-lg"
+            className={inputClasses}
             required
           />
 
@@ -85,7 +86,7 @@ export default function AdminRegister() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
-            className="w-full p-3 border rounded-lg"
+            className={inputClasses}
             required
           />
 
@@ -95,7 +96,7 @@ export default function AdminRegister() {
             value={formData.mobile}
             onChange={handleChange}
             placeholder="Mobile Number"
-            className="w-full p-3 border rounded-lg"
+            className={inputClasses}
             required
           />
 
@@ -105,23 +106,23 @@ export default function AdminRegister() {
             value={formData.password}
             onChange={handleChange}
             placeholder="Password"
-            className="w-full p-3 border rounded-lg"
+            className={inputClasses}
             required
           />
 
           <button
             type="submit"
-            className="w-full bg-black text-white py-3 rounded-lg"
+            className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200 shadow-md shadow-orange-600/30"
           >
             Create Account
           </button>
         </form>
 
-        <p className="text-center mt-5 text-gray-500">
+        <p className="text-center mt-6 text-gray-500">
           Already have an account?{" "}
           <Link
-            to="/admin/login"
-            className="text-black font-semibold"
+            to="/"
+            className="text-orange-600 hover:text-orange-700 font-semibold transition-colors duration-200"
           >
             Login
           </Link>
